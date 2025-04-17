@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo This is my Build'
+                sh 'echo "This is my Build"'
             }
         }
         stage('Test'){
             steps {
-                sh 'echo This is my Test'
+                sh 'echo "This is my Test"'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo This is my Deploy'
+                sh 'echo "This is my Deploy"'
             }
         }
     }
