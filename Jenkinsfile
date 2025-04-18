@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'echo Hi this is shiva Deploy in Agent-1'
+                sh 'echo Hi this is shiva Deploy in Agent-1 test'
             }
         }
     }
