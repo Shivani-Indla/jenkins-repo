@@ -5,17 +5,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo Hi this is shiva Build'
+                sh 'echo Hi this is shiva Build in Agent-1'
             }
         }
         stage('Test') {
             steps {
-                sh 'echo Hi this is shiva Test'
+                sh 'echo Hi this is shiva Test in Agent-1'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo Hi this is shiva Deploy'
+                sh 'echo Hi this is shiva Deploy in Agent-1'
             }
         }
     }
