@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo Hi this is shiva Build in Agent-1'
+                sh 'echo Hi this is shiva Build in Agent-1 Agent'
             }
         }
         stage('Test') {
