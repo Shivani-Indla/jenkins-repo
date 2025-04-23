@@ -1,7 +1,7 @@
 module "jenkins" {
   source = "terraform-aws-modules/ec2-instance/aws"
   
-    name  = "jenkins"
+    name  = "jenkins-master"
     ami   = "ami-0e449927258d45bc4"
     instance_type = "t2.micro"
     key_name      = "SRK-Key"
