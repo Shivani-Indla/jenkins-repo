@@ -11,7 +11,7 @@ module "jenkins" {
     tags = {
       Name = "TF-Master"
     }
-    user_data = file("use_data_master.sh")
+    user_data = file("user_data_master.sh")
 }
 
 module "jebkins-agent" {
@@ -27,5 +27,5 @@ module "jebkins-agent" {
     tags = {
       Name = "TF-Agent"
     }
-    user_data = file("use_data_agent.sh")
+    user_data = file("user_data_agent.sh")
 }

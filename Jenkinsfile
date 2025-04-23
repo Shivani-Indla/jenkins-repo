@@ -23,20 +23,26 @@ pipeline {
         stage('checkout') {
             steps {
                 script {
-                    git "https://github.com/Shivani-Indla/jenkins-repo.git"
+                    dir("terraform")
+                    {
+                        git "https://github.com/Shivani-Indla/Jenkins-Python-Repo.git"
+                    }
                 }
             }
         }
         stage ('Init') {
             steps {
                 sh """
+                cd terraform
                 terraform init -reconfigure
                 """
             }
         }
         stage ('Plan') {
             steps {
-                sh 'echo This is Plan stage'
+                sh """
+                cd terraform
+                """"""
             }
         }
         stage ('Deploy') {
@@ -48,6 +54,7 @@ pipeline {
     post {
         always {
             echo "This will always run"
+            deleteDir()
         }
         success {
             echo "This will run only if the pipeline is successful"
