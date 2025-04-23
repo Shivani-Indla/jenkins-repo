@@ -36,7 +36,9 @@ pipeline {
         }
         stage ('Plan') {
             steps {
-                sh 'echo This is Plan stage'
+                sh """
+
+                """"""
             }
         }
         stage ('Deploy') {
@@ -48,7 +50,6 @@ pipeline {
     post {
         always {
             echo "This will always run"
-            deleteDir()
         }
         success {
             echo "This will run only if the pipeline is successful"
