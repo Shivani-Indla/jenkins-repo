@@ -53,7 +53,7 @@ pipeline {
                 """
             }
         }
-        stage ('Desroy') {
+        stage ('Apply') {
             when {
                 expression { 
                     params.Action == 'Apply' 
