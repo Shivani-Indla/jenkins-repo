@@ -27,20 +27,20 @@ pipeline {
             }
         }
         stage ('Init') {
-                steps {
-                    sh """
-                     pwd; ls -ltr
-                    """
-                }
+            steps {
+                sh """
+                    pwd; ls -ltr
+                """
+            }
         }
         stage ('Plan') {
-                steps {
-                    sh 'This is Plan stage'
-                }
+            steps {
+                sh 'echo This is Plan stage'
+            }
         }
         stage ('Deploy') {
             steps {
-                sh 'This is Deploy stage'
+                sh 'echo This is Deploy stage'
             }
         }
     }
