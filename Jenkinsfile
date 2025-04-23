@@ -44,13 +44,24 @@ pipeline {
                 sh """
                 cd terraform
                 echo "This is Plan stagee"
-                terraform plan -out
+                terraform plan
                 """
             }
         }
         stage ('Deploy') {
+            input {
+                message "Do you want to deploy?"
+                ok "Yes, Deploy it!"
+                parameters {
+                    booleanParam(name: 'autoApprove', defaultValue: true, description: 'Automatically run apply after generating plan?')
+                }
+            }
             steps {
-                sh 'echo This is Deploy stage'
+                sh """
+                cd terraform
+                echo "This is Deploy stagee"
+                terraform apply -auto-approve
+                """
             }
         }
     }
