@@ -29,18 +29,18 @@ pipeline {
                 }
             }
         }
-        stage('Init') {
-            steps {
-                sh """
-                    pwd; ls -ltr
-                """
-            }
-            stage ('Plan') {
+        stage ('Init') {
+                steps {
+                    sh """
+                     pwd; ls -ltr
+                    """
+                }
+        }
+        stage ('Plan') {
                 steps {
                     sh 'This is Plan stage'
                     sh 'env'
                 }
-            }
         }
         stage ('Deploy') {
             steps {
