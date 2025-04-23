@@ -33,9 +33,9 @@ pipeline {
         stage ('Init') {
             steps {
                 sh """
-                cd terraform
-                echo "This is Init stage"
-                terraform init -reconfigure
+                    cd terraform
+                    echo "This is Init stage"
+                    terraform init -reconfigure
                 """
             }
         }
@@ -47,25 +47,24 @@ pipeline {
             }
             steps {
                 sh """
-                cd terraform
-                echo "This is Plan stagee"
-                terraform plan
+                    cd terraform
+                    echo "This is Plan stagee"
+                    terraform plan
                 """
             }
         }
-            stage ('Desroy') {
-                when {
-                    expression { 
-                        params.Action == 'Apply' 
+        stage ('Desroy') {
+            when {
+                expression { 
+                    params.Action == 'Apply' 
                     }
                 }            
-                steps {
-                    sh """
+            steps {
+                sh """
                     cd terraform
                     echo "This is Destroy stagee"
                     terraform apply -auto-approve
-                    """
-                }
+                """
             }
         }
         stage ('Desroy') {
@@ -76,9 +75,9 @@ pipeline {
             }
             steps {
                 sh """
-                cd terraform
-                echo "This is Destroy stagee"
-                terraform destroy -auto-approve
+                    cd terraform
+                    echo "This is Destroy stagee"
+                    terraform destroy -auto-approve
                 """
             }
         }
