@@ -29,7 +29,7 @@ pipeline {
         stage ('Init') {
             steps {
                 sh """
-                    pwd; ls -ltr
+                terraform init -reconfigure
                 """
             }
         }
