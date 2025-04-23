@@ -12,7 +12,7 @@ pipeline {
         string(name: 'Person', defaultValue: 'staging', description: 'Who should i say')
         text(name: 'Biography', defaultValue: '', description: 'Enter some info about you')
         booleanParam(name: 'Toggle', defaultValue: true, description: 'Toggle this value')
-        choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: 'Pick something')
+        choice(name: 'Action', choices: ['Apply', 'Destroy'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'A secret password')
     }
     environment{
@@ -40,6 +40,11 @@ pipeline {
             }
         }
         stage ('Plan') {
+            when {
+                expression { 
+                    params.Action == 'Apply' 
+                }
+            }
             steps {
                 sh """
                 cd terraform
@@ -49,18 +54,16 @@ pipeline {
             }
         }
         stage ('Deploy') {
-            input {
-                message "Do you want to deploy?"
-                ok "Yes, Deploy it!"
-                parameters {
-                    booleanParam(name: 'autoApprove', defaultValue: true, description: 'Automatically run apply after generating plan?')
+            when {
+                expression { 
+                    params.Action == 'Destroy' 
                 }
             }
             steps {
                 sh """
                 cd terraform
                 echo "This is Deploy stagee"
-                terraform apply -auto-approve
+                terraform destroy -auto-approve
                 """
             }
         }
