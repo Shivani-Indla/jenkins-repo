@@ -6,6 +6,7 @@ pipeline {
     options {
         timeout(time: 30, unit: 'MINUTES')
         disableConcurrentBuilds()
+        AnsiColor('xterm')
     }
     parameters {
         string(name: 'Person', defaultValue: 'staging', description: 'Who should i say')
