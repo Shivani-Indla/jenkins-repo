@@ -36,9 +36,7 @@ pipeline {
         }
         stage ('Plan') {
             steps {
-                sh """
-
-                """"""
+                sh 'echo This is Plan stage'
             }
         }
         stage ('Deploy') {
