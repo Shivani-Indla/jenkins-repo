@@ -25,7 +25,7 @@ pipeline {
                 script {
                     dir("terraform")
                     {
-                        git "https://github.com/Shivani-Indla/Jenkins-Python-Repo.git"
+                        git "https://github.com/Shivani-Indla/jenkins-repo.git"
                     }
                 }
             }
