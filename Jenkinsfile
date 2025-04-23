@@ -53,6 +53,21 @@ pipeline {
                 """
             }
         }
+            stage ('Desroy') {
+                when {
+                    expression { 
+                        params.Action == 'Apply' 
+                    }
+                }            
+                steps {
+                    sh """
+                    cd terraform
+                    echo "This is Destroy stagee"
+                    terraform apply -auto-approve
+                    """
+                }
+            }
+        }
         stage ('Desroy') {
             when {
                 expression { 
