@@ -34,6 +34,7 @@ pipeline {
             steps {
                 sh """
                 cd terraform
+                echo "This is Init stage"
                 terraform init -reconfigure
                 """
             }
@@ -42,7 +43,9 @@ pipeline {
             steps {
                 sh """
                 cd terraform
-                """"""
+                echo "This is Plan stage"
+                terraform plan -out
+                """
             }
         }
         stage ('Deploy') {
