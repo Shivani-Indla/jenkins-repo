@@ -39,13 +39,11 @@ pipeline {
         stage ('Plan') {
                 steps {
                     sh 'This is Plan stage'
-                    sh 'env'
                 }
         }
         stage ('Deploy') {
             steps {
                 sh 'This is Deploy stage'
-                sh 'env'
             }
         }
     }
