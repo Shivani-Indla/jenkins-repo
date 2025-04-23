@@ -43,7 +43,7 @@ pipeline {
             steps {
                 sh """
                 cd terraform
-                echo "This is Plan stage"
+                echo "This is Plan stagee"
                 terraform plan -out
                 """
             }
