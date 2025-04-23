@@ -53,7 +53,7 @@ pipeline {
                 """
             }
         }
-        stage ('Deploy') {
+        stage ('Desroy') {
             when {
                 expression { 
                     params.Action == 'Destroy' 
@@ -62,7 +62,7 @@ pipeline {
             steps {
                 sh """
                 cd terraform
-                echo "This is Deploy stagee"
+                echo "This is Destroy stagee"
                 terraform destroy -auto-approve
                 """
             }
